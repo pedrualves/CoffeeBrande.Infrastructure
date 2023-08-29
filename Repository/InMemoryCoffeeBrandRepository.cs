@@ -5,7 +5,7 @@ namespace Infrastructure.Repository
 {
     public class InMemoryCoffeeBrandRepository : ICoffeeBrandRepository
     {
-        private readonly List<CoffeeBrandModel> _coffeeBrands = new List<CoffeeBrandModel>();
+        private readonly List<CoffeeBrandModel> _coffeeBrands = new();
 
         public InMemoryCoffeeBrandRepository()
         {
