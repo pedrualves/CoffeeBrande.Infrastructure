@@ -1,11 +1,11 @@
-using System.Collections.Generic;
+using Domain.Entities;
+using Domain.Service;
 
-namespace CoffeeBrand.Infrastructure
+namespace Infrastructure.Repository
 {
-    public class InMemoryCoffeeBrandRepository
-    
+    public class InMemoryCoffeeBrandRepository : ICoffeeBrandRepository
     {
-        private readonly List<CoffeeBrand> _coffeeBrands = new List<CoffeeBrand>();
+        private readonly List<CoffeeBrandModel> _coffeeBrands = new List<CoffeeBrandModel>();
 
         public InMemoryCoffeeBrandRepository()
         {
@@ -15,7 +15,7 @@ namespace CoffeeBrand.Infrastructure
         private void InitializeData()
         {
             // Simulando dados em memória
-            CoffeeBrand starbucks = new CoffeeBrand
+            CoffeeBrandModel starbucks = new()
             {
                 Id = 1,
                 Name = "Starbucks",
@@ -24,7 +24,7 @@ namespace CoffeeBrand.Infrastructure
                 Description = "Starbucks is one of the largest coffeehouse chains in the world, known for its wide range of coffee beverages and global presence."
             };
 
-            CoffeeBrand lavazza = new CoffeeBrand
+            CoffeeBrandModel lavazza = new()
             {
                 Id = 2,
                 Name = "Lavazza",
@@ -33,7 +33,7 @@ namespace CoffeeBrand.Infrastructure
                 Description = "Lavazza is an Italian coffee brand, one of the most popular in the country, offering a variety of coffee blends and products."
             };
 
-            CoffeeBrand peetsCoffee = new CoffeeBrand
+            CoffeeBrandModel peetsCoffee = new()
             {
                 Id = 3,
                 Name = "Peet's Coffee",
@@ -48,7 +48,7 @@ namespace CoffeeBrand.Infrastructure
             _coffeeBrands.Add(peetsCoffee);
         }
 
-        public IEnumerable<CoffeeBrand> GetAllCoffeeBrands()
+        public IEnumerable<CoffeeBrandModel> GetAll()
         {
             return _coffeeBrands;
         }
